@@ -1,0 +1,166 @@
+@function get-vw($fontSize, $vw-viewport){
+    $vw-context: $vw-viewport * 0.01 * 1px;
+    @return $fontSize / $vw-context * 1vw;
+    @return $fontSize;
+}
+
+@import "libs";
+
+.home{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100vw;height: 100vh;
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+        width: 100%;height: auto;
+        //Заголовок
+        .container_title{
+            margin-top: get-vw(80px, 1440);
+            width: get-vw(737px, 1440);
+            text-align: center;
+            h2{
+                font-family: 'IBM Plex Sans';
+                font-weight: 400;
+                font-size: get-vw(60px, 1440);
+            }
+        }
+        //форма ввода
+        form{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            input{
+                width: get-vw(600px, 1440);
+                height: get-vw(60px, 1440);
+                border: get-vw(2px, 1440) solid #000;
+                border-radius: get-vw(5px, 1440);
+                padding-left: get-vw(10px, 1440);
+
+                font-family: 'IBM Plex Sans';
+                font-weight: 400;
+                font-size: get-vw(20px, 1440);
+                cursor: pointer;
+            }
+            button{
+                width: get-vw(612px, 1440);
+                height: get-vw(60px, 1440);
+                margin-top: get-vw(50px, 1440);
+                border-radius: get-vw(5px, 1440);
+
+                font-family: 'IBM Plex Sans';
+                font-weight: 400;
+                font-size: get-vw(20px, 1440);
+                border: none;
+                background: #FFC940;
+                color: #000;
+                cursor: pointer;
+            }
+            input:focus {
+                box-shadow: 2px 2px 4px 0 orange;
+            }
+            ::placeholder{
+                font-family: 'IBM Plex Sans';
+                font-weight: 400;
+                font-size: get-vw(20px, 1440);
+                text-align: center;
+              
+            }
+        }
+        //popap
+        .popap {
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            backdrop-filter: blur(get-vw(10px, 1440));
+            position: absolute;
+            top: 0;
+            padding-bottom: get-vw(135px, 1440);
+            .popap__one {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                flex-direction: column;
+                .popap__one_title {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    margin-top: get-vw(155px, 1440);
+                    margin-bottom: get-vw(32px, 1440);
+                    font-size: get-vw(60px, 1440);
+                    width: get-vw(927px, 1440);
+                    font-family: "IBM Plex Sans";
+                }
+                  
+                .popap__one_subtitle {
+                    font-size: get-vw(40px, 1440);
+                    width: get-vw(527px, 1440);
+                    margin-bottom: get-vw(100px, 1440);
+                    font-family: "IBM Plex Sans";
+                }
+                a{
+                    text-decoration: none;
+                    font-family: 'IBM Plex Sans';
+                    font-size: get-vw(30px, 1440);
+                    font-weight: 600;
+                    transition: all 300ms ease; 
+                }
+                a:hover{
+                        color: #FFC940;
+            
+                }
+            }
+            .popap__two {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                flex-direction: column;
+                padding-bottom: 130px;
+                .popap__one_title {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    margin-top: get-vw(155px, 1440);
+                    margin-bottom: get-vw(32px, 1440);
+                    font-size: get-vw(60px, 1440);
+                    width: get-vw(927px, 1440);
+                    font-family: "IBM Plex Sans";
+                }
+                  
+                .popap__one_subtitle {
+                    font-size: get-vw(40px, 1440);
+                    width: get-vw(527px, 1440);
+                    margin-bottom: get-vw(100px, 1440);
+                    font-family: "IBM Plex Sans";
+                }
+                a{
+                    text-decoration: none;
+                    font-family: 'IBM Plex Sans';
+                    font-size: get-vw(30px, 1440);
+                    font-weight: 600;
+                    transition: all 300ms ease; 
+                }
+                a:hover{
+                        color: #FFC940;
+            
+                }
+            }
+            
+        }
+        
+    }
+}
