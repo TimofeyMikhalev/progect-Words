@@ -13,6 +13,8 @@
     flex-direction: column;
 
     width: 100vw;height: 100vh;
+
+    position: relative;
     .container{
         display: flex;
         justify-content: center;
@@ -30,7 +32,7 @@
                 font-weight: 400;
                 font-size: get-vw(60px, 1440);
             }
-        }
+        }   
         //форма ввода
         form{
             display: flex;
@@ -161,6 +163,152 @@
             }
             
         }
-        
+        //ссылка на базу данных
+        .a_db{
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            margin-top: get-vw(100px, 1440);
+            position: absolute;
+            bottom: get-vw(40px, 1440);
+            right: get-vw(40px, 1440);
+            a{
+                text-decoration: none;
+                font-family: 'IBM Plex Sans';
+                font-weight: 700;
+                font-size: get-vw(20px, 1440);
+                color: #000;
+                animation: animate_grow 2s infinite;
+            }
+            a:hover{
+                color: #FFC940;
+                transition: all .5s;
+            }
+            @keyframes animate_grow {
+                0% {
+                    transform: scale3d(1, 1, 1);
+                }
+                50% {
+                    transform: scale3d(1.15, 1.15, 1.15);
+                }
+                100% {
+                    transform: scale3d(1, 1, 1);
+                }
+            }
+        }
     }
+}
+//вторая страница
+.logs{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    // width: 100vw;height: 100vh;
+
+    position: relative;
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+        width: 100%;height: auto;
+        //вторая страница
+        .container_title2{
+            margin-top: get-vw(80px, 1440);
+            width: get-vw(937px, 1440);
+            text-align: center;
+            h2{
+                font-family: 'IBM Plex Sans';
+                font-weight: 400;
+                font-size: get-vw(60px, 1440);
+            }
+        }
+        .wrapper{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-auto-flow: column;
+        /* grid-gap: 30px 5px; */
+        align-items: start;
+        height: get-vw(400px, 1440);
+        width: get-vw(1100px, 1440);
+            .word{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: get-vw(260px, 1440);height: 100%;
+                position: relative;
+                white-space: nowrap; /* Текст не переносится */
+                overflow: hidden; /* Обрезаем всё за пределами блока */
+                text-overflow: ellipsis;
+                text-overflow: inherit;
+                word-break: break-all;
+                cursor: pointer;
+                .names{
+                    font-family: 'IBM Plex Sans';
+                    font-weight: 400;
+                    font-size: get-vw(30px, 1440);
+                    color: #000;
+                    padding-left: get-vw(40px, 1440);
+                    white-space: nowrap; /* Текст не переносится */
+                    overflow: hidden; /* Обрезаем всё за пределами блока */
+                    text-overflow: ellipsis;
+                    // display: flex;
+                    // justify-content: flex-start;
+                    // align-items: center;
+                    width: 100%;
+                    
+                }   
+                .names:hover{
+                    white-space: normal; /* Текст не переносится */
+                    overflow: hidden; /* Обрезаем всё за пределами блока */
+                    text-overflow: inherit;
+                    height: 100%;
+                    background-color: #fff;
+                    word-break: break-all;
+                }
+                .names::before{
+                    content: "";
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    vertical-align: middle;
+            
+                    width: get-vw(20px, 1440); /* поддерживаются любые единицы, в том числе проценты */
+                    height: get-vw(20px, 1440);
+                
+                    background: #FFC940;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 0;
+                    top: get-vw(25px, 1440);
+                    
+                }
+            }
+            .word:hover{
+                width: get-vw(250px, 1440);
+                height: auto;
+                transform: scale(1.5);
+                white-space: normal; /* Текст не переносится */
+                overflow: auto; /* Обрезаем всё за пределами блока */
+                text-overflow: inherit;
+                background-color: #fff;
+                border: get-vw(1px, 1440) solid #000;
+                padding: get-vw(15px, 1440);
+                position: relative;
+                z-index: 3;
+                box-shadow: 0 get-vw(14px, 1440) get-vw(28px, 1440) rgba(0,0,0,0.25), 0 get-vw(10px, 1440) get-vw(10px, 1440) rgba(0,0,0,0.22);
+                word-break: break-all;
+                left: get-vw(50px, 1440);
+            }
+            .word:hover .names::before{
+                left: get-vw(20px, 1440);
+                background: #FF4040;
+            }
+        }
+    }
+
 }
