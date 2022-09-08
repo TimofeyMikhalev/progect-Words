@@ -52,6 +52,7 @@
                 cursor: pointer;
             }
             button{
+            
                 width: get-vw(612px, 1440);
                 height: get-vw(60px, 1440);
                 margin-top: get-vw(50px, 1440);
@@ -307,6 +308,38 @@
             .word:hover .names::before{
                 left: get-vw(20px, 1440);
                 background: #FF4040;
+            }
+        }
+            .a_db{
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                margin-top: get-vw(100px, 1440);
+                position: absolute;
+                bottom: get-vw(0px, 1440);
+                right: get-vw(40px, 1440);
+                a{
+                    text-decoration: none;
+                    font-family: 'IBM Plex Sans';
+                    font-weight: 700;
+                    font-size: get-vw(20px, 1440);
+                    color: #000;
+                    animation: animate_grow 2s infinite;
+                }
+                a:hover{
+                    color: #FFC940;
+                    transition: all .5s;
+                }
+                @keyframes animate_grow {
+                    0% {
+                        transform: scale3d(1, 1, 1);
+                    }
+                    50% {
+                        transform: scale3d(1.15, 1.15, 1.15);
+                    }
+                    100% {
+                        transform: scale3d(1, 1, 1);
+                    }
             }
         }
     }

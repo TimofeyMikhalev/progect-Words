@@ -14,7 +14,7 @@
 //     autoprefixer = require('gulp-autoprefixer');
 
 // import express from 'express';
-// const app = express(function(){});
+// const public = express(function(){});
 import gulp from 'gulp';
 // import sass from 'sass';
 import browserSync from 'browser-sync';
@@ -39,13 +39,13 @@ const sass = gulpSass(dartSass);
     
     
     gulp.task('scss', async function(){
-      return gulp.src('app/scss/**/*.scss')
+      return gulp.src('public/scss/**/*.scss')
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(autoprefixer({
           browsers: ['last 8 versions']
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('app/css'))
+        .pipe(gulp.dest('public/css'))
         .pipe(browserSync.reload({stream: true}))
     });
     
@@ -54,50 +54,50 @@ const sass = gulpSass(dartSass);
         'node_modules/normalize.css/normalize.css'
       ])
         .pipe(concat('_libs.scss'))
-        .pipe(gulp.dest('app/scss'))
+        .pipe(gulp.dest('public/scss'))
         .pipe(browserSync.reload({stream: true}))
     });
     
     gulp.task('html' , async  function(){
-      return gulp.src('app/*.html')
+      return gulp.src('public/*.html')
       .pipe(browserSync.reload({stream: true}))
     });
     
     gulp.task('script', async  function(){
-      return gulp.src('app/js/*.js')
+      return gulp.src('public/js/*.js')
       .pipe(browserSync.reload({stream: true}))
     });
     
     gulp.task('js', async  function(){
-      return gulp.src('app/js/*.js')
+      return gulp.src('public/js/*.js')
         .pipe(concat('libs.min.js'))
-        .pipe(gulp.dest('app/js'))
+        .pipe(gulp.dest('public/js'))
         .pipe(browserSync.reload({stream: true}))
     });
     
     gulp.task('browser-sync',async  function() {
       browserSync.init({
           server: {
-              baseDir: "app/"
+              baseDir: "public/"
           }
       });
     });
     
     gulp.task('export',async  function(){
-      let buildHtml = gulp.src('app/**/*.html')
+      let buildHtml = gulp.src('public/**/*.html')
         .pipe(gulp.dest('dist'));
     
-      let BuildCss = gulp.src('app/css/**/*.css')
+      let BuildCss = gulp.src('public/css/**/*.css')
         .pipe(gulp.dest('dist/css'));
     
-      let BuildJs = gulp.src('app/js/**/*.js')
+      let BuildJs = gulp.src('public/js/**/*.js')
         .pipe(gulp.dest('dist/js'));
     });
     
     gulp.task('watch',async  function(){
-      gulp.watch('app/scss/**/*.scss', gulp.parallel('scss'));
-      gulp.watch('app/*.html', gulp.parallel('html'))
-      gulp.watch('app/js/*.js', gulp.parallel('script'))
+      gulp.watch('public/scss/**/*.scss', gulp.parallel('scss'));
+      gulp.watch('public/*.html', gulp.parallel('html'))
+      gulp.watch('public/js/*.js', gulp.parallel('script'))
     });
     
     gulp.task('build', gulp.series( 'clean', 'export'))
